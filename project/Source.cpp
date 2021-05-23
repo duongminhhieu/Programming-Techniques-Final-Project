@@ -6,7 +6,7 @@ int main() {
 
 
 	cout << endl << " hello world ! ";
-
+	cout << endl << " hello u ";
 
 	cout << "\n\n";
 	system("pause");
