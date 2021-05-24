@@ -9,5 +9,6 @@ using namespace std;
 
 void printLoginMenu1();
 void printLoginMenu2(int n);
-bool isLoggedIn();
-int login();
+bool isLoggedInStaff();
+bool isLoggedInStudents();
+int login(int x);
