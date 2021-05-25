@@ -1,7 +1,7 @@
 #include "login.h"
 
 
-bool isLoggedInStaff()
+bool isLoggedInStaff(Login &a )
 {  
     string username, password, un, pw;
     system("cls");
@@ -17,7 +17,7 @@ bool isLoggedInStaff()
     cout << "\t\t\t\t\t         Enter password: ";
     getline(cin, password);
 
-    ifstream read("Acount staff.txt");
+    ifstream read("Account staff.txt");
 
 
     while (!read.eof())
@@ -27,6 +27,8 @@ bool isLoggedInStaff()
 
         if (un == username && pw == password)
         {
+            a.username = un;
+            a.password = pw;
             return true;
         }
     }
@@ -35,9 +37,9 @@ bool isLoggedInStaff()
 }
 
 
-bool isLoggedInStudents()
+bool isLoggedInStudents(Login &a)
 {
-    string username, password, un, pw;
+    string Username, Password, un, pw;
     system("cls");
 
     cout << "\n\n\n\n\n\n\t\t\t\t\t\t****** Login ******" << endl;
@@ -47,11 +49,11 @@ bool isLoggedInStudents()
 
     cout << " Enter username: ";
     cin.ignore();
-    getline(cin, username);
+    getline(cin, Username);
     cout << "\t\t\t\t\t         Enter password: ";
-    getline(cin, password);
+    getline(cin, Password);
 
-    ifstream read("Acount students.txt");
+    ifstream read("Account students.txt");
 
 
     while (!read.eof())
@@ -59,8 +61,10 @@ bool isLoggedInStudents()
         getline(read, un);
         getline(read, pw);
 
-        if (un == username && pw == password)
+        if (un == Username && pw == Password)
         {
+            a.username = un;
+            a.password = pw;
             return true;
         }
     }
@@ -68,8 +72,9 @@ bool isLoggedInStudents()
     return false;
 }
 
-int login(int x )
+Login login(int x )
 {
+    Login a;
     int choice;
     cin >> choice;
 
@@ -77,7 +82,7 @@ int login(int x )
     if (choice == 1)
     {
         if (x == 1) {
-            string username, password;
+        
 
 
             system("cls");
@@ -86,21 +91,22 @@ int login(int x )
             cout << "\t\t\t\t\t\t    ";
             cout << "Select a username: ";
             cin.ignore();
-            getline(cin, username);
+            getline(cin, a.username);
             cout << "\t\t\t\t\t              Select a password: ";
-            getline(cin, password);
+            getline(cin, a.password);
 
 
             fstream file;
-            file.open("Acount staff.txt", ios::app);
+            file.open("Account staff.txt", ios::app);
       
             if (file)
             {
                 cout << "File created and data got written to file\n";
-                file << username << endl << password << endl;
+                file << a.username << endl << a.password << endl;
                 file.close();
                 system("pause");
-                return -1;
+                a.id = -1;
+                return a;
             }
             else
             {
@@ -109,7 +115,7 @@ int login(int x )
         }
         else
         {
-            string username, password;
+            
 
 
             system("cls");
@@ -118,21 +124,22 @@ int login(int x )
             cout << "\t\t\t\t\t\t    ";
             cout << "Select a username: ";
             cin.ignore();
-            getline(cin, username);
+            getline(cin, a.username);
             cout << "\t\t\t\t\t              Select a password: ";
-            getline(cin, password);
+            getline(cin, a.password);
 
 
             fstream file;
-            file.open("Acount students.txt", ios::app);
+            file.open("Account students.txt", ios::app);
  
             if (file)
             {
                 cout << "File created and data got written to file\n";
-                file << username << endl << password << endl;
+                file << a.username << endl << a.password << endl;
                 file.close();
                 system("pause");
-                return -1;
+                a.id = -1;
+                return a;
             }
             else
             {
@@ -142,37 +149,46 @@ int login(int x )
     }
     else if ( choice == 2)
     {
+        
         if (x == 1) {
-            if (isLoggedInStaff())
+            if (isLoggedInStaff(a))
             {
                 cout << "Successfully logged in!\n";
-                return 1;
+                a.id = 1;
+                _sleep(1000);
+                return a;
             }
             else
             {
                 cout << "username or password is wrong\n";
                 system("pause");
-                return -1;
+                a.id = -1;
+                return a;
             }
         }
         else
         {
-            if (isLoggedInStudents())
+            if (isLoggedInStudents(a))
             {
                 cout << "Successfully logged in!\n";
-                return 1;
+                a.id = 1;
+                _sleep(1000);
+                return a;
             }
             else
             {
                 cout << "username or password is wrong\n";
                 system("pause");
-                return -1;
+                a.id = -1;
+                return a;
             }
         }
     }
     else
     {
-        return -1;
+ 
+    a.id = -1;
+        return a;
     }
-    return 0;
+
 }

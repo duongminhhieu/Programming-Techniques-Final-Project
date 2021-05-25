@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="func.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,17 +24,23 @@
     <ClCompile Include="display.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="display_header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Acount staff.txt">
+    <Text Include="Account staff.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Acount Students.txt">
+    <Text Include="Account Students.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

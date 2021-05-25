@@ -1,4 +1,5 @@
 #include "login.h"
+#include "display_header.h"
 
 void printLoginMenu1() {
 
@@ -69,3 +70,46 @@ void printLoginMenu2(int n) {
 		return;
 }
 
+
+
+void printMenuStaff1(string username) {
+	system("cls");
+
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "The local date and time is: " << dt << endl;
+	cout << "\n\n\n\n\n\n";
+	cout << "\t\t\t\t\t\t Xin chao " + username + " ! \n\n";
+
+	cout <<	"\t\t\t\t\t   ************** Staff ***************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: User Account             *" << endl;
+	cout << "\t\t\t\t\t*               2: My Course                *" << endl;
+	cout << "\t\t\t\t\t*               3. Log out                  *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+
+
+	return;
+}
+
+void printMenuStudents1(string username) {
+	system("cls");
+
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "The local date and time is: " << dt << endl;
+	cout << "\n\n\n\n\n\n";
+	cout << "\t\t\t\t\t\t Xin chao " + username + " ! \n\n";
+
+	cout << "\t\t\t\t\t   ************** Students ***************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: User Account             *" << endl;
+	cout << "\t\t\t\t\t*               2: Register For The Course  *" << endl;
+	cout << "\t\t\t\t\t*               3. Log out                  *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+
+
+	return;
+}

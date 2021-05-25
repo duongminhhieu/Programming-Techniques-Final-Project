@@ -5,10 +5,17 @@
 #include <string>
 
 
+
 using namespace std;
+
+struct Login {
+	string username;
+	string password;
+	int id;
+};
 
 void printLoginMenu1();
 void printLoginMenu2(int n);
-bool isLoggedInStaff();
-bool isLoggedInStudents();
-int login(int x);
+bool isLoggedInStaff(Login &a );
+bool isLoggedInStudents(Login &a);
+Login login(int x);
