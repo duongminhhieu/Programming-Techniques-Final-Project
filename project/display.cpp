@@ -113,3 +113,23 @@ void printMenuStudents1(string username) {
 
 	return;
 }
+
+void printUserMenu(string username, string password) {
+	system("cls");
+
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "The local date and time is: " << dt << endl;
+	cout << "\n\n\n\n\n\n";
+	cout << "\t\t\t\t\t\t Xin chao " + username + " ! \n\n";
+
+	cout << "\t\t\t\t\t   ************** User Account ***************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: Change The Password      *" << endl;
+	cout << "\t\t\t\t\t*               2. Back                     *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+
+
+	return;
+}

@@ -2,7 +2,6 @@
 #include "display_header.h"
 
 
-
 int main() {
 	int choose;
 	Login a;
@@ -18,7 +17,9 @@ int main() {
 			printLoginMenu2(1);
 			a = login(1);
 			if (a.id == 1) {
+				a.who = 1;
 				printMenuStaff1(a.username);
+				choose_Login(a);
 			}
 		}
 		else if (choose == 2)
@@ -26,7 +27,9 @@ int main() {
 			printLoginMenu2(2);
 			a = login(2);
 			if (a.id == 1) {
+				a.who = 2;
 				printMenuStudents1(a.username);
+				choose_Login(a);
 			}
 		}
 		else
