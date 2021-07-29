@@ -133,3 +133,24 @@ void printUserMenu(string username, string password) {
 
 	return;
 }
+
+
+void printMenuCreateCourse() {
+	system("cls");
+
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "The local date and time is: " << dt << endl;
+	cout << "\n\n\n\n\n\n";
+
+	cout << "\t\t\t\t\t   ************** User Account ***************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: Create Course            *" << endl;
+	cout << "\t\t\t\t\t*               2. My Course                *" << endl;
+	cout << "\t\t\t\t\t*               3. Back                     *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+
+
+	return;
+}

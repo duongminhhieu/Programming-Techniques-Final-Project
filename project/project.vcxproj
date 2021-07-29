@@ -150,11 +150,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display_header.h" />
+    <ClInclude Include="func.h" />
     <ClInclude Include="login.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Account staff.txt" />
     <Text Include="Account Students.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="staff.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

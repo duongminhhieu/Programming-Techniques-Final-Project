@@ -18,8 +18,12 @@ int main() {
 			a = login(1);
 			if (a.id == 1) {
 				a.who = 1;
-				printMenuStaff1(a.username);
-				choose_Login(a);
+				do
+				{
+					printMenuStaff1(a.username);
+					choose_Login(a);
+				} while (a.id == -2);
+				
 			}
 		}
 		else if (choose == 2)
@@ -28,8 +32,12 @@ int main() {
 			a = login(2);
 			if (a.id == 1) {
 				a.who = 2;
-				printMenuStudents1(a.username);
-				choose_Login(a);
+				do
+				{
+					printMenuStudents1(a.username);
+					choose_Login(a);
+				} while (a.id == -2 );
+				
 			}
 		}
 		else

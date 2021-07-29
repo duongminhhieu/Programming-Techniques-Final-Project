@@ -1,5 +1,6 @@
 ﻿#include "login.h"
 #include "display_header.h"
+#include "func.h"
 
 bool isLoggedInStaff(Login &a )
 {  
@@ -343,7 +344,8 @@ void change_Pass(Login &a) {
     int x;
     cin >> x;
     if (x == 2) {
-        return;
+        a.id = -2;
+        return ;
     }
     else
     {
@@ -397,11 +399,16 @@ void change_Pass(Login &a) {
             insertLine("Account Students.txt", line, tmp);
             delete_line("Account Students.txt", line);
         }
+        cout << "\n\n" << " Password changed Successfully\n";
+        cout  << " You Must Login Again !\n\n";
+        system("pause");
+        a.id = -1;
+        return;
     }
 }
 
 void choose_Login(Login &a) {
-
+   
     int x;
     cin >> x;
 
@@ -411,6 +418,13 @@ void choose_Login(Login &a) {
           printUserMenu(a.username, a.password);
           change_Pass(a);
           break;
+
+    case 2:
+        if (!checkStaff(a.username)) {
+            printMenuCreateCourse();
+            a.id = createCourse(a.username);
+        }
+        break;
     case 3 :
         a.id = -1;
         break;
