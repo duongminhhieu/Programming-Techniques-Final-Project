@@ -1,1 +1,14 @@
-﻿  project.vcxproj -> G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\Debug\project.exe
+﻿  func.cpp
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(21,24): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(127,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(148,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(155,27): warning C4018: '<=': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(298,24): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(357,26): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(401,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(413,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(425,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(437,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(441,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(465): warning C4715: 'createCourse': not all control paths return a value
+  project.vcxproj -> G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\Debug\project.exe

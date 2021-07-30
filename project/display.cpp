@@ -154,3 +154,31 @@ void printMenuCreateCourse() {
 
 	return;
 }
+
+
+void printMenuMyCourse() {
+	cout << endl << endl << endl;
+	cout << "\t\t\t\t\t   ************** My Course ***************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: View List of Courses     *" << endl;
+	cout << "\t\t\t\t\t*               2. Update                   *" << endl;
+	cout << "\t\t\t\t\t*               3. Remove                   *" << endl;
+	cout << "\t\t\t\t\t*               4. Back                     *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+}
+
+
+void printViewListOfCourse() {
+	cout << endl << "\n\t\t\t============================= Danh sach lop hoc  ====================================\n\n";
+	cout << left << setw(10) << "No";
+	cout << left << setw(15) << "ID"
+		<< left << setw(25) << "Last Name"
+		<< left << setw(15) << "First Name"
+		<< left << setw(15) << "Gender"
+		<< left << setw(15) << "OtherMark"
+		<< left << setw(15) << "MidtermMark"
+		<< left << setw(15) << "FinalMark"
+		<< left << setw(15) << "|TotalMark|";
+	cout << endl;
+}

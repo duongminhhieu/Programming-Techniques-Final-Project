@@ -186,7 +186,8 @@ Login login(int x )
             {
                 cout << "Successfully logged in!\n";
                 a.id = 1;
-                _sleep(1000);
+                cout << endl;
+                system("pause");
                 return a;
             }
             else
@@ -420,10 +421,8 @@ void choose_Login(Login &a) {
           break;
 
     case 2:
-        if (!checkStaff(a.username)) {
-            printMenuCreateCourse();
-            a.id = createCourse(a.username);
-        }
+           printMenuCreateCourse();
+           a.id = createCourse(a.username);
         break;
     case 3 :
         a.id = -1;

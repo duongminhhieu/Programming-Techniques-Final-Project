@@ -1,4 +1,5 @@
 
+#include "login.h"
 
 struct Date
 {
@@ -21,7 +22,7 @@ struct Student
 {
 	int No;
 	int ID;
-	string Gender; // 1: Nam   2: Nu
+	string Gender;
 	Date birth;
 	Name name;
 	mark score;
@@ -30,7 +31,7 @@ struct Student
 
 struct Staff {
 	int No;
-	string name;
+	string name ;
 	string courseID;
 	string courseName;
 	string Class;
