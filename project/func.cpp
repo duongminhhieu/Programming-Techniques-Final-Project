@@ -339,25 +339,35 @@ int createCourse(string userName) {
 				return -2;
 			}
 			countSt = 0;
-			
+			i.close();
+			i.open(a[chose - 1].courseID + "_Students.csv");
+
 			while (!i.eof())
 			{
-				string tmp;
-				getline(i, tmp);
+				
+				getline(i, test);
 				countSt += 1;
 			}
 
-			Student *st = new Student[countSt];
+			i.close();
+			i.open(a[chose - 1].courseID + "_Students.csv");
+			countSt = countSt - 1;
+			Student* st = new Student[countSt];
+			m = 0;
 			while (!i.eof())
 			{
+				st[m].No = m + 1;
+
 				string tmp;
 				getline(i, tmp);
 				int n = tmp.find(",");
 				if (n == -1) break;
+				test = "";
 				for (size_t i = 0; i < n; i++)
 				{
-					st->ID += tmp[i];
+					test += tmp[i];
 				}
+				(st + m)->ID = atoi(test.c_str());
 				
 				for (size_t j = n + 1; j <= tmp.length(); j++)
 				{
@@ -365,7 +375,7 @@ int createCourse(string userName) {
 						n = j;
 						break;
 					}
-					st->name.lastName += tmp[j];
+					(st + m)->name.lastName += tmp[j];
 					n = j;
 				}
 
@@ -375,7 +385,7 @@ int createCourse(string userName) {
 						n = j;
 						break;
 					}
-					st->name.firstName += tmp[j];
+					(st + m)->name.firstName += tmp[j];
 					n = j;
 				}
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -384,7 +394,7 @@ int createCourse(string userName) {
 						n = j;
 						break;
 					}
-					st->Gender += tmp[j];
+					(st + m)->Gender += tmp[j];
 					n = j;
 				}
 
@@ -398,7 +408,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				st->score.OtherMark = atoi(sc.c_str());
+				(st + m)->score.OtherMark = atoi(sc.c_str());
 
 				sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -410,7 +420,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				st->score.MidtermMark = atoi(sc.c_str());
+				(st + m)->score.MidtermMark = atoi(sc.c_str());
 
 				sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -422,7 +432,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				st->score.FinalMark = atoi(sc.c_str());
+				(st + m)->score.FinalMark = atoi(sc.c_str());
 
 				sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -434,24 +444,29 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				st->score.TotalMark = atoi(sc.c_str());
+				(st + m)->score.TotalMark = atoi(sc.c_str());
 				
+				m += 1;
+				if (m == countSt) break;
 			}
+
+			i.close();
 
 			for (size_t i = 0; i < countSt; i++)
 			{
 				cout << left << setw(10) << i + 1;
-				cout << left << setw(15) << st->ID
-					<< left << setw(25) << st->name.lastName
-					<< left << setw(15) << st->name.firstName
-					<< left << setw(15) << st->Gender
-					<< left << setw(15) << st->score.OtherMark
-					<< left << setw(15) << st->score.MidtermMark
-					<< left << setw(15) << st->score.FinalMark
-					<< left << setw(15) << st->score.TotalMark;
+				cout << left << setw(15) << (st + i)->ID
+					<< left << setw(25) << (st + i)->name.lastName
+					<< left << setw(15) << (st + i)->name.firstName
+					<< left << setw(15) << (st + i)->Gender
+					<< left << setw(15) << (st + i)->score.OtherMark
+					<< left << setw(15) << (st + i)->score.MidtermMark
+					<< left << setw(15) << (st + i)->score.FinalMark
+					<< left << setw(15) << (st + i)->score.TotalMark;
 				cout << endl;
 			}
 
+			cout << endl << endl;
 			system("pause");
 			return -2;
 

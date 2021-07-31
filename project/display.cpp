@@ -180,5 +180,5 @@ void printViewListOfCourse() {
 		<< left << setw(15) << "MidtermMark"
 		<< left << setw(15) << "FinalMark"
 		<< left << setw(15) << "|TotalMark|";
-	cout << endl;
+	cout << endl << endl;
 }
