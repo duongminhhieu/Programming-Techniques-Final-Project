@@ -161,7 +161,7 @@ void printMenuMyCourse() {
 	cout << "\t\t\t\t\t   ************** My Course ***************" << endl;
 	cout << "\t\t\t\t\t*********************************************" << endl;
 	cout << "\t\t\t\t\t*               1: View List of Courses     *" << endl;
-	cout << "\t\t\t\t\t*               2. Update                   *" << endl;
+	cout << "\t\t\t\t\t*               2. Update Course            *" << endl;
 	cout << "\t\t\t\t\t*               3. Remove                   *" << endl;
 	cout << "\t\t\t\t\t*               4. Back                     *" << endl;
 	cout << "\t\t\t\t\t*********************************************" << endl;
@@ -181,4 +181,17 @@ void printViewListOfCourse() {
 		<< left << setw(15) << "FinalMark"
 		<< left << setw(15) << "|TotalMark|";
 	cout << endl << endl;
+}
+
+void printUpdateOfCourse() {
+	cout << endl << endl << endl;
+	cout << "\t\t\t\t\t   ************** Update Course ***************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: Add Students From File   *" << endl;
+	cout << "\t\t\t\t\t*               2. Import the scoreboard    *" << endl;
+	cout << "\t\t\t\t\t*               3. Update a student result  *" << endl;
+	cout << "\t\t\t\t\t*               4. Export to a CSV file     *" << endl;
+	cout << "\t\t\t\t\t*               5. Back                     *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
 }

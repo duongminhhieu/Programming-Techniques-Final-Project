@@ -40,7 +40,7 @@ int createCourse(string userName) {
 	
 	cin >> x;
 	
-	// Create
+	// Create Course
 	if (x == 1) {
 		ofstream ofs;
 		ofs.open("staff.csv", ios::app);
@@ -92,6 +92,7 @@ int createCourse(string userName) {
 		return -2;
 	}
 
+	// My Crouse
 	if (x == 2) {
 		system("cls");
 		ifstream ifs;
@@ -190,7 +191,7 @@ int createCourse(string userName) {
 					date += tmp[n + 1];
 					n = n + 1;
 				}
-				a[m].startDate.day = atoi(date.c_str());
+				a[m].startDate.day = atof(date.c_str());
 
 				date = "";
 				while (true)
@@ -202,7 +203,7 @@ int createCourse(string userName) {
 					date += tmp[n + 1];
 					n = n + 1;
 				}
-				a[m].startDate.month = atoi(date.c_str());
+				a[m].startDate.month = atof(date.c_str());
 
 				date = "";
 				while (true)
@@ -214,7 +215,7 @@ int createCourse(string userName) {
 					date += tmp[n + 1];
 					n = n + 1;
 				}
-				a[m].startDate.year = atoi(date.c_str());
+				a[m].startDate.year = atof(date.c_str());
 
 
 				date = "";
@@ -227,7 +228,7 @@ int createCourse(string userName) {
 					date += tmp[n + 1];
 					n = n + 1;
 				}
-				a[m].endDate.day = atoi(date.c_str());
+				a[m].endDate.day = atof(date.c_str());
 
 				date = "";
 				while (true)
@@ -239,7 +240,7 @@ int createCourse(string userName) {
 					date += tmp[n + 1];
 					n = n + 1;
 				}
-				a[m].endDate.month = atoi(date.c_str());
+				a[m].endDate.month = atof(date.c_str());
 
 				date = "";
 				while (true)
@@ -251,7 +252,7 @@ int createCourse(string userName) {
 					date += tmp[n + 1];
 					n = n + 1;
 				}
-				a[m].endDate.year = atoi(date.c_str());
+				a[m].endDate.year = atof(date.c_str());
 
 
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -317,6 +318,8 @@ int createCourse(string userName) {
 		printMenuMyCourse();
 		int chose;
 		cin >> chose;
+
+		// View List
 		if (chose == 1) {
 			cout << endl << " Enter Class No: ";
 			cin >> chose;
@@ -342,8 +345,8 @@ int createCourse(string userName) {
 
 			while (!i.eof())
 			{
-
 				getline(i, test);
+				if (test == "") break;
 				countSt += 1;
 			}
 
@@ -365,7 +368,7 @@ int createCourse(string userName) {
 				{
 					test += tmp[i];
 				}
-				(st + m)->ID = atoi(test.c_str());
+				(st + m)->ID = atof(test.c_str());
 
 				for (size_t j = n + 1; j <= tmp.length(); j++)
 				{
@@ -395,6 +398,42 @@ int createCourse(string userName) {
 					(st + m)->Gender += tmp[j];
 					n = j;
 				}
+				
+				string date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				(st + m)->birth.day = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				(st + m)->birth.month = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				(st + m)->birth.year = atof(date.c_str());
 
 				string sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -406,7 +445,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				(st + m)->score.OtherMark = atoi(sc.c_str());
+				(st + m)->score.OtherMark = atof(sc.c_str());
 
 				sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -418,7 +457,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				(st + m)->score.MidtermMark = atoi(sc.c_str());
+				(st + m)->score.MidtermMark = atof(sc.c_str());
 
 				sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -430,7 +469,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				(st + m)->score.FinalMark = atoi(sc.c_str());
+				(st + m)->score.FinalMark = atof(sc.c_str());
 
 				sc = "";
 				for (size_t j = n + 1; j <= tmp.length(); j++)
@@ -442,7 +481,7 @@ int createCourse(string userName) {
 					sc += tmp[j];
 					n = j;
 				}
-				(st + m)->score.TotalMark = atoi(sc.c_str());
+				(st + m)->score.TotalMark = atof(sc.c_str());
 
 				m += 1;
 				if (m == countSt) break;
@@ -452,11 +491,14 @@ int createCourse(string userName) {
 
 			for (size_t i = 0; i < countSt; i++)
 			{
+				string date1 = to_string((st + i)->birth.day) + "/" + to_string((st + i)->birth.month)
+					+ "/" + to_string((st + i)->birth.year);
 				cout << left << setw(10) << i + 1;
 				cout << left << setw(15) << (st + i)->ID
 					<< left << setw(25) << (st + i)->name.lastName
 					<< left << setw(15) << (st + i)->name.firstName
 					<< left << setw(15) << (st + i)->Gender
+					<< left << setw(15) << date1
 					<< left << setw(15) << (st + i)->score.OtherMark
 					<< left << setw(15) << (st + i)->score.MidtermMark
 					<< left << setw(15) << (st + i)->score.FinalMark
@@ -470,6 +512,590 @@ int createCourse(string userName) {
 
 		}
 
+		// Update File
+		if (chose == 2) {
+			printUpdateOfCourse();
+			cin >> chose;
+
+			// Add students from file
+			if (chose == 1) {
+				
+				cout << endl << " Enter Class No: ";
+				cin >> chose;
+
+				ifstream i;
+				
+				ofstream ofs;
+				i.open("Students.csv");
+				ofs.open(a[chose - 1].courseID + "_Students.csv", ios:: app);
+
+				string test;
+				int countSt = 0;
+				while (!i.eof())
+				{
+					getline(i, test);
+					if (test == "") break;
+					countSt += 1;
+				}
+
+				i.close();
+				i.open("Students.csv");
+				//countSt = countSt - 1;
+				Student* st = new Student[countSt];
+				m = 0;
+				while (!i.eof())
+				{
+					st[m].No = m + 1;
+
+					string tmp;
+					getline(i, tmp);
+					int n = tmp.find(",");
+					if (n == -1) break;
+					test = "";
+					for (size_t i = 0; i < n; i++)
+					{
+						test += tmp[i];
+					}
+					(st + m)->ID = atof(test.c_str());
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->name.lastName += tmp[j];
+						n = j;
+					}
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->name.firstName += tmp[j];
+						n = j;
+					}
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->Gender += tmp[j];
+						n = j;
+					}
+
+					string date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.day = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.month = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.year = atof(date.c_str());
+
+
+					string sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.OtherMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.MidtermMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.FinalMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.TotalMark = atof(sc.c_str());
+
+					m += 1;
+					if (m == countSt) break;
+				}
+
+				for (size_t i = 0; i < countSt; i++)
+				{
+					ofs << (st + i)->ID << "," << (st + i)->name.lastName << "," << (st + i)->name.firstName
+						<< "," << (st + i)->Gender << "," << (st + i)->birth.day
+						<< "/" << (st + i)->birth.month << "/" << (st + i)->birth.year << ","
+						<< (st + i)->score.OtherMark << "," << (st + i)->score.MidtermMark << "," 
+						<< (st + i)->score.FinalMark << "," << (st + i)->score.TotalMark << endl;
+				}
+
+				i.close();
+				ofs.close();
+				
+				cout << endl << "Add Students Successfully!" << endl;
+				system("pause");
+				return -2;
+			}
+
+			// Import Score
+			if (chose == 2) {
+				cout << endl << " Enter Class No: ";
+				cin >> chose;
+
+				ifstream i;
+				i.open(a[chose - 1].courseID + "_Students.csv");
+
+				int countSt = 0;
+				string test;
+				while (i >> test)
+				{
+					countSt = 1;
+					break;
+				}
+				if (countSt == 0) {
+					cout << endl << "Nothing!" << endl;
+					system("pause");
+					return -2;
+				}
+				countSt = 0;
+				i.close();
+				i.open(a[chose - 1].courseID + "_Students.csv");
+
+				while (!i.eof())
+				{
+					getline(i, test);
+					if (test == "") break;
+					countSt += 1;
+				}
+
+				i.close();
+				i.open(a[chose - 1].courseID + "_Students.csv");
+				//countSt = countSt - 1;
+				Student* st = new Student[countSt];
+				m = 0;
+				while (!i.eof())
+				{
+					st[m].No = m + 1;
+
+					string tmp;
+					getline(i, tmp);
+					int n = tmp.find(",");
+					if (n == -1) break;
+					test = "";
+					for (size_t i = 0; i < n; i++)
+					{
+						test += tmp[i];
+					}
+					(st + m)->ID = atof(test.c_str());
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->name.lastName += tmp[j];
+						n = j;
+					}
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->name.firstName += tmp[j];
+						n = j;
+					}
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->Gender += tmp[j];
+						n = j;
+					}
+
+					string date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.day = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.month = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.year = atof(date.c_str());
+
+					string sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.OtherMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.MidtermMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.FinalMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.TotalMark = atof(sc.c_str());
+
+					m += 1;
+					if (m == countSt) break;
+				}
+				i.close();
+
+				for (size_t i = 0; i < countSt; i++)
+				{
+					cout << endl << " Nhap diem cho sinh vien: ";
+					cout << (st + i)->ID << "--" << (st + i)->name.lastName << " " << (st + i)->name.firstName << endl;
+					cout << " Other Mark: ";
+					cin >> (st + i)->score.OtherMark;
+					cout << " MidtermMark: ";
+					cin >> (st + i)->score.MidtermMark;
+					cout << " FinalMark: ";
+					cin >> (st + i)->score.FinalMark;
+
+					(st + i)->score.TotalMark = (st[i].score.OtherMark + st[i].score.MidtermMark * 2 + st[i].score.FinalMark * 3) / 6;
+					cout << endl;
+				}
+
+				ofstream ofs;
+				ofs.open(a[chose - 1].courseID + "_Students.csv");
+
+				for (size_t i = 0; i < countSt; i++)
+				{
+					ofs << (st + i)->ID << "," << (st + i)->name.lastName << "," << (st + i)->name.firstName
+						<< "," << (st + i)->Gender << "," << (st + i)->birth.day
+						<< "/" << (st + i)->birth.month << "/" << (st + i)->birth.year << ","
+						<< (st + i)->score.OtherMark << "," << (st + i)->score.MidtermMark << ","
+						<< (st + i)->score.FinalMark << "," << (st + i)->score.TotalMark << endl;
+				}
+
+				cout << endl << " Import ScoreBoard Successfully!" << endl;
+				system("pause");
+				return -2;
+			}
+
+			// Update a students result
+			if (chose == 3) {
+
+			}
+
+			// Export A Course to CSV file
+			if (chose == 4) {
+				cout << " Enter Class No: ";
+				cin >> chose;
+
+				ifstream i;
+				i.open(a[chose - 1].courseID + "_Students.csv");
+
+				int countSt = 0;
+				string test;
+				while (i >> test)
+				{
+					countSt = 1;
+					break;
+				}
+				if (countSt == 0) {
+					cout << endl << "Nothing!" << endl;
+					system("pause");
+					return -2;
+				}
+				countSt = 0;
+				i.close();
+				i.open(a[chose - 1].courseID + "_Students.csv");
+
+				while (!i.eof())
+				{
+					getline(i, test);
+					if (test == "") break;
+					countSt += 1;
+				}
+
+				i.close();
+				i.open(a[chose - 1].courseID + "_Students.csv");
+				//countSt = countSt - 1;
+				Student* st = new Student[countSt];
+				m = 0;
+				while (!i.eof())
+				{
+					st[m].No = m + 1;
+
+					string tmp;
+					getline(i, tmp);
+					int n = tmp.find(",");
+					if (n == -1) break;
+					test = "";
+					for (size_t i = 0; i < n; i++)
+					{
+						test += tmp[i];
+					}
+					(st + m)->ID = atof(test.c_str());
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->name.lastName += tmp[j];
+						n = j;
+					}
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->name.firstName += tmp[j];
+						n = j;
+					}
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(st + m)->Gender += tmp[j];
+						n = j;
+					}
+
+					string date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.day = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.month = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(st + m)->birth.year = atof(date.c_str());
+
+					string sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.OtherMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.MidtermMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.FinalMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(st + m)->score.TotalMark = atof(sc.c_str());
+
+					m += 1;
+					if (m == countSt) break;
+				}
+				i.close();
+				
+
+				ofstream ofs;
+				test = "Export Course ID " + a[chose - 1].courseID + " to CSVfile.csv";
+				ofs.open(test);
+				ofs << "Student ID,LastName,FirstName,Gender,DayOfBirth,OtherMark,MidtermMark,FinalMark,TotalMark" << endl;
+				for (size_t i = 0; i < countSt; i++)
+				{
+					ofs << (st + i)->ID << "," << (st + i)->name.lastName << "," << (st + i)->name.firstName
+						<< "," << (st + i)->Gender << "," << (st + i)->birth.day
+						<< "/" << (st + i)->birth.month << "/" << (st + i)->birth.year << ","
+						<< (st + i)->score.OtherMark << "," << (st + i)->score.MidtermMark << ","
+						<< (st + i)->score.FinalMark << "," << (st + i)->score.TotalMark << endl;
+				}
+				
+				ofs.close();
+
+				cout << endl << " Export file Successfully!\n File Name: ";
+				cout << test << endl;
+				system("pause");
+				return -2;
+
+			}
+
+			if (chose == 5) return -2;
+
+		}
+
+		//  Remove file
 		if (chose == 3) {
 			cout << endl << "Enter Class No: ";
 			cin >> chose;

@@ -9,3 +9,4 @@ void printMenuCreateCourse();
 
 void printMenuMyCourse();
 void printViewListOfCourse();
+void printUpdateOfCourse();

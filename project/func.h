@@ -16,6 +16,13 @@ struct Name {
 struct mark
 {
 	float TotalMark, FinalMark, MidtermMark, OtherMark;
+	mark() :TotalMark(), FinalMark(), MidtermMark(), OtherMark()
+	{
+		FinalMark = 0; 
+		MidtermMark = 0;
+		MidtermMark = 0;
+		TotalMark = 0;
+	}
 };
 
 struct Student
