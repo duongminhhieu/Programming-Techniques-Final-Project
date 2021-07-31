@@ -312,13 +312,11 @@ int createCourse(string userName) {
 				<< left << setw(15) << (a + i)->room;
 		}
 
+
 		cout << endl << endl;
 		printMenuMyCourse();
 		int chose;
-
 		cin >> chose;
-		if (chose == 4) return -2;
-
 		if (chose == 1) {
 			cout << endl << " Enter Class No: ";
 			cin >> chose;
@@ -344,14 +342,14 @@ int createCourse(string userName) {
 
 			while (!i.eof())
 			{
-				
+
 				getline(i, test);
 				countSt += 1;
 			}
 
 			i.close();
 			i.open(a[chose - 1].courseID + "_Students.csv");
-			countSt = countSt - 1;
+			//countSt = countSt - 1;
 			Student* st = new Student[countSt];
 			m = 0;
 			while (!i.eof())
@@ -368,7 +366,7 @@ int createCourse(string userName) {
 					test += tmp[i];
 				}
 				(st + m)->ID = atoi(test.c_str());
-				
+
 				for (size_t j = n + 1; j <= tmp.length(); j++)
 				{
 					if (tmp[j] == ',') {
@@ -445,7 +443,7 @@ int createCourse(string userName) {
 					n = j;
 				}
 				(st + m)->score.TotalMark = atoi(sc.c_str());
-				
+
 				m += 1;
 				if (m == countSt) break;
 			}
@@ -471,6 +469,65 @@ int createCourse(string userName) {
 			return -2;
 
 		}
+
+		if (chose == 3) {
+			cout << endl << "Enter Class No: ";
+			cin >> chose;
+
+			string test = a[chose - 1].courseID + "_Students.csv";
+			remove(test.c_str());
+
+			if (count == 1) {
+				ofstream of;
+				of.open("staff.csv");
+				of << "";
+				of.close();
+
+				string test = a[0].courseID + "_Students.csv";
+				remove(test.c_str());
+				cout << endl << endl;
+				cout << " Remove Successfully ! \n";
+				system("pause");
+				return -2;
+			}
+
+			Staff* b = new Staff[count];
+
+			for (size_t i = 0; i < count; i++)
+			{
+				b[i] = a[i];
+			}
+
+			a = new Staff[count - 1];
+			int h = 0;
+			for (size_t i = 0; i < count; i++)
+			{
+				if (i == chose - 1) continue;
+				a[h] = b[i];
+				h += 1;
+			}
+			count = count - 1;
+
+			ofstream ofs;
+			ofs.open("staff.csv");
+
+			for (size_t i = 0; i < count; i++)
+			{
+				ofs << a[i].name << "," << a[i].courseID << "," << a[i].courseName << "," << a[i].Class << "," << a[i].startDate.day
+					<< "/" << a[i].startDate.month << "/" << a[i].startDate.year << "," << a[i].endDate.day
+					<< "/" << a[i].endDate.month << "/" << a[i].endDate.year << "," << a[i].DayOfWeek << "," << a[i].startHour << ","
+					<< a[i].endHour << "," << a[i].room << endl;
+			}
+
+			ofs.close();
+
+
+			cout << endl << endl;
+			cout << " Remove Successfully ! \n";
+			system("pause");
+			return -2;
+		}
+		if (chose == 4) return -2;
 		
 		
 	}
