@@ -176,6 +176,7 @@ void printViewListOfCourse() {
 		<< left << setw(25) << "Last Name"
 		<< left << setw(15) << "First Name"
 		<< left << setw(15) << "Gender"
+		<< left << setw(15) << "Date Of Birth"
 		<< left << setw(15) << "OtherMark"
 		<< left << setw(15) << "MidtermMark"
 		<< left << setw(15) << "FinalMark"
