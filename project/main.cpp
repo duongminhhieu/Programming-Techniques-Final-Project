@@ -35,7 +35,7 @@ int main() {
 				do
 				{
 					printMenuStudents1(a.username);
-					choose_Login(a);
+					choose_Login2(a);
 				} while (a.id == -2 );
 				
 			}

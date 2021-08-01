@@ -204,7 +204,7 @@ Login login(int x )
             {
                 cout << "Successfully logged in!\n";
                 a.id = 1;
-                _sleep(1000);
+                system("pause");
                 return a;
             }
             else
@@ -425,6 +425,33 @@ void choose_Login(Login &a) {
            a.id = createCourse(a.username);
         break;
     case 3 :
+        a.id = -1;
+        break;
+    default:
+        break;
+    }
+
+    return;
+}
+
+
+void choose_Login2(Login& a) {
+
+    int x;
+    cin >> x;
+
+    switch (x)
+    {
+    case 1:
+        printUserMenu(a.username, a.password);
+        change_Pass(a);
+        break;
+
+    case 2:
+        printMenuRegisterCourse();
+        a.id = registerCourse(a.username);
+        break;
+    case 3:
         a.id = -1;
         break;
     default:

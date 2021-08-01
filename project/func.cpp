@@ -33,7 +33,6 @@ int checkStaff(string name) {
 	return 0;
 }
 
-
 int createCourse(string userName) {
 
 	int x;
@@ -1380,5 +1379,13 @@ int createCourse(string userName) {
 
 }
 
+
+int registerCourse(string userName) {
+	int x;
+	cin >> x;
+
+
+	if (x == 3) return -2;
+}
 
 

@@ -53,3 +53,4 @@ struct Staff {
 
 int checkStaff(string name);
 int createCourse(string userName);
+int registerCourse(string userName);

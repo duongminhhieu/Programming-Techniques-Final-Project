@@ -22,6 +22,7 @@ bool isLoggedInStaff(Login &a );
 bool isLoggedInStudents(Login &a);
 Login login(int x);
 void choose_Login(Login &a);
+void choose_Login2(Login& a);
 int findNumberLinesfile(int who);
 void delete_line(const char* file_name, int n, string passNew);
 void change_Pass(Login& a);
