@@ -157,26 +157,6 @@ void printMenuCreateCourse() {
 
 
 
-void printMenuRegisterCourse() {
-	system("cls");
-
-	time_t now = time(0);
-	char* dt = ctime(&now);
-	cout << "The local date and time is: " << dt << endl;
-	cout << "\n\n\n\n\n\n";
-
-	cout << "\t\t\t\t\t   ************ Register Course *************" << endl;
-	cout << "\t\t\t\t\t*********************************************" << endl;
-	cout << "\t\t\t\t\t*               1: Register Course          *" << endl;
-	cout << "\t\t\t\t\t*               2. My Course                *" << endl;
-	cout << "\t\t\t\t\t*               3. Back                     *" << endl;
-	cout << "\t\t\t\t\t*********************************************" << endl;
-	cout << "\t\t\t\t\t              Your choice: ";
-
-
-	return;
-}
-
 void printMenuMyCourse() {
 	cout << endl << endl << endl;
 	cout << "\t\t\t\t\t   ************** My Course ***************" << endl;
@@ -216,4 +196,27 @@ void printUpdateOfCourse() {
 	cout << "\t\t\t\t\t*               5. Back                     *" << endl;
 	cout << "\t\t\t\t\t*********************************************" << endl;
 	cout << "\t\t\t\t\t              Your choice: ";
+}
+
+
+
+
+void printMenuRegisterCourse() {
+	system("cls");
+
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "The local date and time is: " << dt << endl;
+	cout << "\n\n\n\n\n\n";
+
+	cout << "\t\t\t\t\t   ************ Register Course *************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1: Register Course          *" << endl;
+	cout << "\t\t\t\t\t*               2. My Course                *" << endl;
+	cout << "\t\t\t\t\t*               3. Back                     *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+
+
+	return;
 }

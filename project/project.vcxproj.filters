@@ -48,10 +48,10 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="staff.csv">
+    <None Include="Students.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="Students.csv">
+    <None Include="staff.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

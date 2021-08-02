@@ -54,3 +54,6 @@ struct Staff {
 int checkStaff(string name);
 int createCourse(string userName);
 int registerCourse(string userName);
+void readStaffFile(ifstream& i, Staff*& a, int& n);
+int registerCourse(string userName);
+void readAStudentsFormFile(ifstream& i, Student*& st, int& counSt);

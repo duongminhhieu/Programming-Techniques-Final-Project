@@ -1,4 +1,4 @@
-#include "login.h"
+﻿#include "login.h"
 #include "display_header.h"
 #include "func.h"
 
@@ -1380,10 +1380,500 @@ int createCourse(string userName) {
 }
 
 
+void readStaffFile(ifstream& i, Staff* &a, int& count) {
+
+	tm* today; // struct gom ngay, thang, nam, ...
+	time_t t;
+	t = time(NULL);
+	today = localtime(&t); // Lấy thời gian của hệ thống 
+
+	string test;
+	while (!i.eof())
+	{
+		getline(i, test);
+		if (test == "") {
+			break;
+		}
+
+		count += 1;
+	}
+
+	int m = 0;
+	a = new Staff[count];
+
+	i.close();
+	i.open("staff.csv");
+
+	int n;
+	while (!i.eof())
+	{
+		string tmp;
+		getline(i, tmp);
+		n = tmp.find(",");
+		if (n == -1) break;
+		string tmp2;
+		for (size_t i = 0; i < n; i++)
+		{
+			tmp2 += tmp[i];
+		}
+		a[m].name = tmp2;
+		
+		for (int j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].courseID += tmp[j];
+			n = j;
+		}
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].courseName += tmp[j];
+			n = j;
+		}
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].Class += tmp[j];
+			n = j;
+		}
+
+		string date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		a[m].startDate.day = atoi(date.c_str());
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		a[m].startDate.month = atoi(date.c_str());
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		a[m].startDate.year = atoi(date.c_str());
+
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		a[m].endDate.day = atoi(date.c_str());
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		a[m].endDate.month = atoi(date.c_str());
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		a[m].endDate.year = atoi(date.c_str());
+
+
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].DayOfWeek += tmp[j];
+			n = j;
+		}
+
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].startHour += tmp[j];
+			n = j;
+		}
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].endHour += tmp[j];
+			n = j;
+		}
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			a[m].room += tmp[j];
+			n = j;
+		}
+		m += 1;	
+	}
+
+	int k = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if ((today->tm_year + 1900) > a[i].startDate.year && (today->tm_year + 1900) < a[i].endDate.year) {
+
+			k += 1;
+		}
+		else if ((today->tm_year + 1900) == a[i].startDate.year && (today->tm_year + 1900) == a[i].endDate.year) {
+			if ((today->tm_mon + 1) > a[i].startDate.month && (today->tm_mon + 1) < a[i].endDate.month) {
+				k += 1;
+			}
+			else if ((today->tm_mon + 1) == a[i].startDate.month && (today->tm_mon + 1) == a[i].endDate.month) {
+				if (today->tm_mday >= a[i].startDate.day && today->tm_mday <= a[i].endDate.day) {
+					k += 1;
+				}
+			}
+		
+		}
+	}
+
+	Staff* b = new Staff[k];
+	k = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if ((today->tm_year + 1900) > a[i].startDate.year && (today->tm_year + 1900) < a[i].endDate.year) {
+			b[k] = a[i];
+			k += 1;
+		}
+		else if ((today->tm_year + 1900) == a[i].startDate.year && (today->tm_year + 1900) == a[i].endDate.year) {
+			if ((today->tm_mon + 1) > a[i].startDate.month && (today->tm_mon + 1) < a[i].endDate.month) {
+				b[k] = a[i];
+				k += 1;
+			}
+			else if ((today->tm_mon + 1) == a[i].startDate.month && (today->tm_mon + 1) == a[i].endDate.month) {
+				if (today->tm_mday >= a[i].startDate.day && today->tm_mday <= a[i].endDate.day) {
+					b[k] = a[i];
+					k += 1;
+				}
+			}
+
+		}
+	}
+
+	count = k;
+	a = new Staff[count];
+	for (size_t i = 0; i < count; i++)
+	{
+		a[i] = b[i];
+	}
+
+}
+
+void readAStudentsFormFile(ifstream& i, Student& st, string userName) {
+	
+	int m = 0;
+	string test;
+	while (!i.eof())
+	{
+		
+		st.No = m + 1;
+		string tmp;
+		getline(i, tmp);
+		int n = tmp.find(",");
+		if (n == -1) break;
+		test = "";
+		for (size_t i = 0; i < n; i++)
+		{
+			test += tmp[i];
+		}
+		st.ID = atof(test.c_str());
+
+		test = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			test += tmp[j];
+			n = j;
+		}
+		st.name.lastName = test;
+
+		test = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			test += tmp[j];
+			n = j;
+		}
+		st.name.firstName = test;
+
+		string a;
+		a = st.name.lastName + " " + st.name.firstName;
+		if (a != userName) continue;
+
+		test = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			test += tmp[j];
+			n = j;
+		}
+		st.Gender = test;
+
+		string date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		st.birth.day = atof(date.c_str());
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		st.birth.month = atof(date.c_str());
+
+		date = "";
+		while (true)
+		{
+			if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+				n = n + 1;
+				break;
+			}
+			date += tmp[n + 1];
+			n = n + 1;
+		}
+		st.birth.year = atof(date.c_str());
+
+		string sc = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			sc += tmp[j];
+			n = j;
+		}
+		st.score.OtherMark = atof(sc.c_str());
+
+		sc = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			sc += tmp[j];
+			n = j;
+		}
+		st.score.MidtermMark = atof(sc.c_str());
+
+		sc = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			sc += tmp[j];
+			n = j;
+		}
+		st.score.FinalMark = atof(sc.c_str());
+
+		sc = "";
+		for (size_t j = n + 1; j <= tmp.length(); j++)
+		{
+			if (tmp[j] == ',') {
+				n = j;
+				break;
+			}
+			sc += tmp[j];
+			n = j;
+		}
+		st.score.TotalMark = atof(sc.c_str());
+
+		break;
+	}
+
+
+}
+
 int registerCourse(string userName) {
 	int x;
 	cin >> x;
 
+	if (x == 1) {
+		system("cls");
+		cout << endl << "\n\t\t\t============================= List of open Courses ====================================\n\n";
+		cout << left << setw(10) << "No";
+		cout << left << setw(15) << "Course ID"
+			<< left << setw(25) << "Course Name"
+			<< left << setw(15) << "Class"
+			<< left << setw(15) << "Start Day"
+			<< left << setw(15) << "End Day"
+			<< left << setw(15) << "Day Of Week"
+			<< left << setw(15) << "Start Hour"
+			<< left << setw(15) << "End Hour"
+			<< left << setw(15) << "Room";
+		cout << endl;
+
+
+		ifstream ifs;
+
+		ifs.open("staff.csv");
+
+		if (!ifs.is_open()) {
+			cout << endl << " Nothing! " << endl;
+			system("pause");
+			ifs.close();
+			return -2;
+		}
+
+		Staff* a;
+		int n = 0;
+		readStaffFile(ifs, a, n);
+		ifs.close();
+		for (size_t i = 0; i < n; i++)
+		{
+			string date1 = to_string((a + i)->startDate.day) + "/" + to_string((a + i)->startDate.month) + "/" + to_string((a + i)->startDate.year);
+			string date2 = to_string((a + i)->endDate.day) + "/" + to_string((a + i)->endDate.month) + "/" + to_string((a + i)->endDate.year);
+			cout << endl;
+			cout << left << setw(10) << i + 1;
+			cout << left << setw(15) << (a + i)->courseID
+				<< left << setw(25) << (a + i)->courseName
+				<< left << setw(15) << (a + i)->Class
+				<< left << setw(15) << date1
+				<< left << setw(15) << date2
+				<< left << setw(15) << (a + i)->DayOfWeek
+				<< left << setw(15) << (a + i)->startHour
+				<< left << setw(15) << (a + i)->endHour
+				<< left << setw(15) << (a + i)->room;
+		}
+
+		ifstream i;
+		i.open("Students.csv");
+		Student st;
+		readAStudentsFormFile(i, st, userName);
+		i.close();
+
+		ofstream ofs;
+		string test = "Course Of Student " + st.name.lastName + " " + st.name.firstName + "---" + to_string(st.ID) + ".csv";
+		ofs.open(test.c_str());
+		int z = 0;
+		string test1;
+		while (!i.eof())
+		{
+			getline(i, test1);
+			if (test1 == "") break;
+			z += 1;
+		}
+		ofs.close();
+
+		int x1;
+		cout << endl << "\n\n\n1. Enter Register Course ";
+		cout << endl << "2. Back";
+		cout << endl << "Choice: ";
+		cin >> x1;
+		
+		if (x1 == 1) {
+
+			if (z == 5) {
+				cout << endl << " You can only register for a maximum of 5 courses! ";
+				cout << endl << "You currently have 5 courses" << endl;
+				system("pause");
+				return -2;
+			}
+			cout << endl << endl << " Enter No: ";
+			cin >> x1;
+			
+			ofs.open(test.c_str(), ios::app);
+			ofs << a[x1-1].name << "," << a[x1-1].courseID << "," << a[x1-1].courseName << "," << a[x1-1].Class << "," << a[x1-1].startDate.day
+				<< "/" << a[x1-1].startDate.month << "/" << a[x1-1].startDate.year << "," << a[x1-1].endDate.day
+				<< "/" << a[x1-1].endDate.month << "/" << a[x1-1].endDate.year << "," << a[x1-1].DayOfWeek << "," << a[x1-1].startHour << ","
+				<< a[x1-1].endHour << "," << a[x1-1].room << endl;
+			ofs.close();
+
+			ofs.open(a[x1 - 1].courseID + "_Students.csv", ios::app);
+
+			ofs << st.ID << "," << st.name.lastName << "," << st.name.firstName
+				<< "," << st.Gender << "," << st.birth.day
+				<< "/" << st.birth.month << "/" << st.birth.year << ","
+				<< st.score.OtherMark << "," << st.score.MidtermMark << ","
+				<< st.score.FinalMark << "," << st.score.TotalMark << endl;
+			ofs.close();
+
+			cout << endl << " Register Successfully! \n";
+			system("pause");
+			return -2;
+
+		}
+
+
+		if (x1 == 2) return -2;
+	}
 
 	if (x == 3) return -2;
 }
