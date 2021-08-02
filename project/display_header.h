@@ -11,3 +11,5 @@ void printMenuRegisterCourse();
 void printMenuMyCourse();
 void printViewListOfCourse();
 void printUpdateOfCourse();
+
+void printMyCourseStudents();

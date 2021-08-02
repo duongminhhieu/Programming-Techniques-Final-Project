@@ -1765,6 +1765,7 @@ int registerCourse(string userName) {
 	int x;
 	cin >> x;
 
+	// Register
 	if (x == 1) {
 		system("cls");
 		cout << endl << "\n\t\t\t============================= List of open Courses ====================================\n\n";
@@ -1873,6 +1874,238 @@ int registerCourse(string userName) {
 
 
 		if (x1 == 2) return -2;
+	}
+	
+	if (x == 2) {
+
+		printMyCourseStudents();
+		cin >> x;
+
+		// Print My course
+		if (x == 1) {
+
+			ifstream i;
+			i.open("Students.csv");
+			Student st;
+			readAStudentsFormFile(i, st, userName);
+			i.close();
+
+			system("cls");
+			ifstream ifs;
+			string test = "Course Of Student " + userName + "---" + to_string(st.ID) + ".csv";
+			ifs.open(test.c_str());
+
+			if (!ifs.is_open()) {
+				cout << endl << endl << " Nothing!" << endl;
+				system("pause");
+				return -2;
+			}
+
+			cout << endl << "\n\t\t\t============================= Registered List  ====================================\n\n";
+			cout << left << setw(10) << "No";
+			cout << left << setw(25) << "Teacher Name";
+			cout << left << setw(15) << "Course ID"
+				<< left << setw(25) << "Course Name"
+				<< left << setw(15) << "Day Of Week"
+				<< left << setw(15) << "Start Hour"
+				<< left << setw(15) << "End Hour"
+				<< left << setw(15) << "Room";
+			cout << endl;
+
+			int count = 0;
+			string test1;
+			while (!ifs.eof())
+			{
+				getline(ifs, test1);
+				if (test1 == "") break;
+				count += 1;
+			
+			}
+
+			ifs.close();
+			ifs.open(test.c_str());
+
+			int m = 0;
+			int n;
+			Staff* a = new Staff[count];
+			while (!ifs.eof())
+			{
+				string tmp;
+				getline(ifs, tmp);
+				n = tmp.find(",");
+				if (n == -1) break;
+				string tmp2;
+				for (size_t i = 0; i < n; i++)
+				{
+					tmp2 += tmp[i];
+				}
+
+				a[m].name = tmp2;
+
+				for (int j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].courseID += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].courseName += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].Class += tmp[j];
+					n = j;
+				}
+
+				string date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].startDate.day = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].startDate.month = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].startDate.year = atof(date.c_str());
+
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].endDate.day = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].endDate.month = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].endDate.year = atof(date.c_str());
+
+
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].DayOfWeek += tmp[j];
+					n = j;
+				}
+
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].startHour += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].endHour += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].room += tmp[j];
+					n = j;
+				}
+				m += 1;
+				if (m == count) break;
+			}
+
+			cout << endl << endl;
+			for (size_t i = 0; i < count; i++)
+			{
+				cout << left << setw(10) << i + 1;
+				cout << left << setw(25) << a[i].name;
+				cout << left << setw(15) << a[i].courseID
+					<< left << setw(25) << a[i].courseName
+					<< left << setw(15) << a[i].DayOfWeek
+					<< left << setw(15) << a[i].startHour
+					<< left << setw(15) << a[i].endHour
+					<< left << setw(15) << a[i].room;
+				cout << endl;
+
+			}
+			
+			cout << endl << endl;
+			system("pause");
+			return - 2;
+
+		}
+
 	}
 
 	if (x == 3) return -2;

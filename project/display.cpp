@@ -220,3 +220,14 @@ void printMenuRegisterCourse() {
 
 	return;
 }
+
+void printMyCourseStudents() {
+	cout << endl << endl << endl;
+	cout << "\t\t\t\t\t   ************ My Course *************" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t*               1. View List of Courses     *" << endl;
+	cout << "\t\t\t\t\t*               2. My Course                *" << endl;
+	cout << "\t\t\t\t\t*               3. Back                     *" << endl;
+	cout << "\t\t\t\t\t*********************************************" << endl;
+	cout << "\t\t\t\t\t              Your choice: ";
+}
