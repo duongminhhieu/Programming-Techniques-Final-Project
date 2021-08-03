@@ -65,28 +65,52 @@ G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\Fin
 G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1339,25): warning C4018: '<': signed/unsigned mismatch
 G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1346,25): warning C4018: '<': signed/unsigned mismatch
 G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1357,25): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1415,24): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1421,25): warning C4018: '<=': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1608,23): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1628,24): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1632,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1684,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1696,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1708,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1720,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1732,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1744,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1756,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1800,24): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1938,26): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1945,27): warning C4018: '<=': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1983,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1995,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2007,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2020,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2032,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2044,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2088,25): warning C4018: '<': signed/unsigned mismatch
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2111): warning C4715: 'registerCourse': not all control paths return a value
-G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1380): warning C4715: 'createCourse': not all control paths return a value
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1416,24): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1422,25): warning C4018: '<=': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1631,23): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1651,24): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1655,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1707,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1719,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1731,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1743,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1755,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1767,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1779,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1823,24): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1962,26): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1969,27): warning C4018: '<=': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2007,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2019,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2031,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2044,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2056,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2068,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2114,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2189,26): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2196,27): warning C4018: '<=': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2234,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2246,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2258,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2271,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2283,30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2295,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2341,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2395,27): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2399,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2440,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2452,33): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2464,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2476,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2488,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2500,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2512,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2520,26): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2527,26): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2539,26): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2572,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2579,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2590,25): warning C4018: '<': signed/unsigned mismatch
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(2612): warning C4715: 'registerCourse': not all control paths return a value
+G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\project\func.cpp(1381): warning C4715: 'createCourse': not all control paths return a value
   project.vcxproj -> G:\Tài liệu\ĐẠI HỌC\Kĩ Thuật Lập Trình\Đồ án\Final Project\FinalProject\Debug\project.exe

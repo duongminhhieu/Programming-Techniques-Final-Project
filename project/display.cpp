@@ -226,8 +226,10 @@ void printMyCourseStudents() {
 	cout << "\t\t\t\t\t   ************ My Course *************" << endl;
 	cout << "\t\t\t\t\t*********************************************" << endl;
 	cout << "\t\t\t\t\t*               1. View List of Courses     *" << endl;
-	cout << "\t\t\t\t\t*               2. My Course                *" << endl;
-	cout << "\t\t\t\t\t*               3. Back                     *" << endl;
+	cout << "\t\t\t\t\t*               2. Remove Courses           *" << endl;
+	cout << "\t\t\t\t\t*               3. View Scoreboard, GPA     *" << endl;
+	cout << "\t\t\t\t\t*               4. Back                     *" << endl;
 	cout << "\t\t\t\t\t*********************************************" << endl;
 	cout << "\t\t\t\t\t              Your choice: ";
 }
+
