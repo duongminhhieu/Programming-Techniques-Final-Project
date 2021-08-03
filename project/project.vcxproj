@@ -158,6 +158,7 @@
     <Text Include="Account Students.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FileImportStudents.csv" />
     <None Include="staff.csv" />
     <None Include="Students.csv" />
   </ItemGroup>

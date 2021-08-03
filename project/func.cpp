@@ -525,7 +525,7 @@ int createCourse(string userName) {
 				ifstream i;
 				
 				ofstream ofs;
-				i.open("Students.csv");
+				i.open("FileImportStudents.csv");
 				ofs.open(a[chose - 1].courseID + "_Students.csv", ios:: app);
 
 				string test;
@@ -538,7 +538,7 @@ int createCourse(string userName) {
 				}
 
 				i.close();
-				i.open("Students.csv");
+				i.open("FileImportStudents.csv");
 				//countSt = countSt - 1;
 				Student* st = new Student[countSt];
 				m = 0;
@@ -2549,9 +2549,6 @@ int registerCourse(string userName) {
 
 			}
 
-	
-
-
 			// xoas file "Course Of Student " + userName + "---" + to_string(st.ID) + ".csv";
 			test = "Course Of Student " + userName + "---" + to_string(st.ID) + ".csv";
 
@@ -2605,8 +2602,392 @@ int registerCourse(string userName) {
 
 		}
 
+		// print Score and GPA
+		if (x == 3) {
+			
+			ifstream i;
+			i.open("Students.csv");
+			Student st;
+			readAStudentsFormFile(i, st, userName);
+			i.close();
 
-		if (x == 3) return -2;
+
+			cout << endl << "\n\t\t\t============================= Scoreboard of " << userName << " ====================================\n\n";
+			cout << left << setw(10) << "No";
+			cout << left << setw(25) << "Teacher Name";
+			cout << left << setw(15) << "Course ID"
+				<< left << setw(25) << "Course Name"
+				<< left << setw(15) << "Other Mark"
+				<< left << setw(15) << "Midterm Mark"
+				<< left << setw(15) << "Final Mark"
+				<< left << setw(15) << "Total Mark";
+			cout << endl << endl << endl;
+
+			ifstream ifs;
+			
+			string test = "Course Of Student " + userName + "---" + to_string(st.ID) + ".csv";
+			int count = 0;
+			string test1;
+			ifs.open(test.c_str());
+			while (!ifs.eof())
+			{
+				getline(ifs, test1);
+				if (test1 == "") break;
+				count += 1;
+
+			}
+
+			ifs.close();
+			ifs.open(test.c_str());
+
+			int m = 0;
+			int n;
+			// danh sach khoa hoc da dang ki 
+			Staff* a = new Staff[count];
+			while (!ifs.eof())
+			{
+				string tmp;
+				getline(ifs, tmp);
+				n = tmp.find(",");
+				if (n == -1) break;
+				string tmp2;
+				for (size_t i = 0; i < n; i++)
+				{
+					tmp2 += tmp[i];
+				}
+
+				a[m].name = tmp2;
+
+				for (int j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].courseID += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].courseName += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].Class += tmp[j];
+					n = j;
+				}
+
+				string date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].startDate.day = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].startDate.month = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].startDate.year = atof(date.c_str());
+
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].endDate.day = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].endDate.month = atof(date.c_str());
+
+				date = "";
+				while (true)
+				{
+					if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+						n = n + 1;
+						break;
+					}
+					date += tmp[n + 1];
+					n = n + 1;
+				}
+				a[m].endDate.year = atof(date.c_str());
+
+
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].DayOfWeek += tmp[j];
+					n = j;
+				}
+
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].startHour += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].endHour += tmp[j];
+					n = j;
+				}
+				for (size_t j = n + 1; j <= tmp.length(); j++)
+				{
+					if (tmp[j] == ',') {
+						n = j;
+						break;
+					}
+					a[m].room += tmp[j];
+					n = j;
+				}
+				m += 1;
+				if (m == count) break;
+			}
+
+			// diem cua sinh vien
+			int countMark = 0;
+			mark* scores = new mark[count];
+			Student* z;
+			for (size_t r = 0; r < count; r++)
+			{
+				ifstream ii;
+				test = "";
+				int countSt = 0;
+				ii.open(a[r].courseID + "_Students.csv");
+				while (!ii.eof())
+				{
+					getline(ii, test);
+					if (test == "") break;
+					countSt += 1;
+				}
+				
+				ii.close();
+				ii.open(a[r].courseID + "_Students.csv");
+				//countSt = countSt - 1;
+				z = new Student[countSt];
+				m = 0;
+				while (!ii.eof())
+				{
+					z[m].No = m + 1;
+
+					string tmp;
+					getline(ii, tmp);
+					int n = tmp.find(",");
+					if (n == -1) break;
+					test = "";
+					for (size_t i = 0; i < n; i++)
+					{
+						test += tmp[i];
+					}
+					(z + m)->ID = atof(test.c_str());
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(z + m)->name.lastName += tmp[j];
+						n = j;
+					}
+
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(z + m)->name.firstName += tmp[j];
+						n = j;
+					}
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						(z + m)->Gender += tmp[j];
+						n = j;
+					}
+
+					string date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(z + m)->birth.day = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(z + m)->birth.month = atof(date.c_str());
+
+					date = "";
+					while (true)
+					{
+						if (tmp[n + 1] == '/' || tmp[n + 1] == ',') {
+							n = n + 1;
+							break;
+						}
+						date += tmp[n + 1];
+						n = n + 1;
+					}
+					(z + m)->birth.year = atof(date.c_str());
+
+					string sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(z + m)->score.OtherMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(z + m)->score.MidtermMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(z + m)->score.FinalMark = atof(sc.c_str());
+
+					sc = "";
+					for (size_t j = n + 1; j <= tmp.length(); j++)
+					{
+						if (tmp[j] == ',') {
+							n = j;
+							break;
+						}
+						sc += tmp[j];
+						n = j;
+					}
+					(z + m)->score.TotalMark = atof(sc.c_str());
+
+					if (st.ID == (z + m)->ID) {
+						scores[countMark] = (z + m)->score;
+						countMark += 1;
+					}
+
+					m += 1;
+					if (m == countSt) break;
+				}
+				
+
+				cout << left << setw(10) << r + 1;
+				cout << left << setw(25) << a[r].name;
+				cout << left << setw(15) << a[r].courseID
+					<< left << setw(25) << a[r].courseName
+					<< left << setw(15) << scores[r].OtherMark
+					<< left << setw(15) << scores[r].MidtermMark
+					<< left << setw(15) << scores[r].FinalMark
+					<< left << setw(15) << scores[r].TotalMark;
+				cout << endl;
+				ii.close();
+			}
+
+			cout << endl << endl << endl << "\t\t\t\t";
+			cout << " Tong diem trung binh GPA = ";
+			float GPA = 0;
+			for (size_t i = 0; i < countMark; i++)
+			{
+				GPA += scores[i].TotalMark;
+			}
+
+			cout << GPA / countMark << endl << endl;
+
+			system("pause");
+			return -2;
+		}
+
+		if (x == 4) return -2;
 	}
 
 }

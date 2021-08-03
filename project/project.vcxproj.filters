@@ -54,5 +54,8 @@
     <None Include="staff.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="FileImportStudents.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
