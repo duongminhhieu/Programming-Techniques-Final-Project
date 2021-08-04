@@ -159,14 +159,32 @@ Login login(int x )
             }
             file.close();
 
-
-
+            Student st;
+            cout << endl << " Enter ID: ";
+            cin >> st.ID;
+            cout << " Enter LastName: ";
+            cin.ignore();
+            getline(cin, st.name.lastName);
+            cout << " Enter FirstName: ";
+            getline(cin, st.name.firstName);
+            cout << " Enter Gender: ";
+            getline(cin, st.Gender);
+            cout << " Enter Day of Birth ( day, month, year): ";
+            cin >> st.birth.day >> st.birth.month >> st.birth.year;
+            
             file.open("Account students.txt", ios::app);
  
             if (file)
             {
                 cout << "File created and data got written to file\n";
                 file << a.username << endl << a.password << endl;
+                file.close();
+
+                file.open("Students.csv", ios::app);
+                file << st.ID << "," << st.name.lastName << "," << st.name.firstName << "," << st.Gender << "," << st.birth.day
+                    << "/" << st.birth.month << "/" << st.birth.year << "," << st.score.OtherMark
+                    << "," << st.score.MidtermMark << "," << st.score.FinalMark << "," << st.score.TotalMark << endl;
+
                 file.close();
                 system("pause");
                 a.id = -1;
